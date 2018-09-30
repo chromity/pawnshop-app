@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div class="page-label-box">
+        <h2 class="page-label">|<span style="padding-right: 8px;">  </span>Transaction Detail</h2>
+    </div>
+
+    <div id="base-table-container">
+        <div class="row" id="table-content" style="width: 80vw; margin-left: 10vw; margin-right: 10vw; margin-top: 20px;">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col" style="width: 8%;">DATE</th>
+                    <th scope="col" style="width: 8%;">CODE</th>
+                    <th scope="col" style="width: 8%;">LAST NAME</th>
+                    <th scope="col" style="width: 8%;">FIRST NAME</th>
+                    <th scope="col" style="width: 2%;">M.I.</th>
+                    <th scope="col" style="width: 2%;">SEX</th>
+                    <th scope="col" style="width: 8%;">NATIONALITY</th>
+                    <th scope="col" style="width: 8%;">CONTACT NUMBER</th>
+                    <th scope="col" style="width: 14%;">ADDRESS</th>
+                    <th scope="col" style="width: 14%;">DESCRIPTION</th>
+                    <th scope="col" style="width: 4%;">KARAT</th>
+                    <th scope="col" style="width: 4%;">GRAMS</th>
+                    <th scope="col" style="width: 2%;">%</th>
+                    <th scope="col" style="width: 4%;">P_VALUE</th>
+                    <th scope="col" style="width: 4%;">A_VALUE</th>
+                    <th scope="col" style="width: 8%;">EDIT</th>
+                    <th scope="col" style="width: 4%;">DEL</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% if data %}
+                    <tr>
+                        <th scope="row">{{ data.date_time }}</th>
+                        <td><a href="{% url 'transaction:transaction_detail' pk=data.pk %}">{{ data.code }}</a></td>
+                        <td>{{ data.last_name }}</td>
+                        <td>{{ data.first_name }}</td>
+                        <td>{{ data.middle_name }}</td>
+                        <td>{{ data.sex }}</td>
+                        <td>{{ data.nationality }}</td>
+                        <td>{{ data.contact_number }}</td>
+                        <td>{{ data.address }}</td>
+                        <td>{{ data.description }}</td>
+                        <td>{{ data.karat }}</td>
+                        <td>{{ data.grams }}</td>
+                        <td>{{ data.percentage }}</td>
+                        <td>{{ data.price_value }}</td>
+                        <td>{{ data.a_value }}</td>
+                        <td><a href="{% url 'transaction:transaction_edit' pk=data.pk %}">Edit</a></td>
+                        <td><a href="{% url 'transaction:transaction_delete' pk=data.pk %}">Delete</a></td>
+                    </tr>
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <a id="btn-transact" class="btn btn-x" style="margin-left: 10vw; margin-top: -20px;" href="{% url 'transaction:transaction_edit' pk=data.pk %}">EDIT
+        TRANSACTION</a>
+
+
+{% endblock %}

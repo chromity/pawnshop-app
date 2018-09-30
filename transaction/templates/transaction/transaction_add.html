@@ -1,0 +1,187 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div id="base-frm-container" class="col-md-2">
+
+        <div id="frm-container" style="margin-left: 10px; margin-top: 90px;">
+            <form method="POST" class="frm post-form">{% csrf_token %}
+                {{ form.non_field_errors }}
+                <div class="fieldWrapper form-candidate">
+                    {{ form.date_time.errors }}
+                    <label style="width: 120px;" class="form-label" for="{{ form.date_time.id_for_label }}">DATE</label>
+                    {{ form.date_time }}
+                </div>
+
+                <div class="fieldWrapper form-input-text">
+                    {{ form.code.errors }}
+                    <label style="width: 120px;" class="form-label" for="{{ form.code.id_for_label }}">CODE</label>
+                    {{ form.code }}
+                </div>
+
+                <div style="margin-top: 20px;"></div>
+
+                <div class="fieldWrapper form-input-text">
+                    {{ form.first_name.errors }}
+                    <label style="width: 120px;" class="form-label" for="{{ form.first_name.id_for_label }}">FIRST
+                        NAME</label>
+                    {{ form.first_name }}
+                </div>
+
+                <div class="fieldWrapper form-input-text">
+                    {{ form.middle_name.errors }}
+                    <label style="width: 120px;" class="form-label" for="{{ form.middle_name.id_for_label }}">MIDDLE
+                        NAME</label>
+                    {{ form.middle_name }}
+                </div>
+
+                <div class="fieldWrapper form-input-text">
+                    {{ form.last_name.errors }}
+                    <label style="width: 120px;" class="form-label" for="{{ form.last_name.id_for_label }}">LAST
+                        NAME</label>
+                    {{ form.last_name }}
+                </div>
+
+                <div class="fieldWrapper form-input-text">
+                    {{ form.sex.errors }}
+                    <label style="width: 120px;" class="form-label" for="{{ form.sex.id_for_label }}">SEX</label>
+                    {{ form.sex }}
+                </div>
+
+                <div class="fieldWrapper form-input-text">
+                    {{ form.nationality.errors }}
+                    <label style="width: 120px;" class="form-label" for="{{ form.nationality.id_for_label }}">NATIONALITY</label>
+                    {{ form.nationality }}
+                </div>
+
+                <div class="fieldWrapper form-input-text">
+                    {{ form.contact_number.errors }}
+                    <label style="width: 120px;" class="form-label" for="{{ form.contact_number.id_for_label }}">CONTACT
+                        NUMBER</label>
+                    {{ form.contact_number }}
+                </div>
+
+                <div class="fieldWrapper form-input-text">
+                    {{ form.address.errors }}
+                    <label style="width: 120px;" class="form-label"
+                           for="{{ form.address.id_for_label }}">ADDRESS</label>
+                    {{ form.address }}
+                </div>
+
+                <div style="margin-top: 20px;"></div>
+
+                <div class="fieldWrapper form-input-text">
+                    {{ form.description.errors }}
+                    <label style="width: 120px;" class="form-label" for="{{ form.description.id_for_label }}">DESCRIPTION</label>
+                    {{ form.description }}
+                </div>
+
+                <div class="fieldWrapper form-input-text">
+                    {{ form.karat.errors }}
+                    <label style="width: 120px;" class="form-label" for="{{ form.karat.id_for_label }}">KARAT</label>
+                    {{ form.karat }}
+                </div>
+
+                <div class="fieldWrapper form-input-text">
+                    {{ form.grams.errors }}
+                    <label style="width: 120px;" class="form-label" for="{{ form.grams.id_for_label }}">GRAMS</label>
+                    {{ form.grams }}
+                </div>
+
+                <div class="fieldWrapper form-input-text">
+                    {{ form.percentage.errors }}
+                    <label style="width: 120px;" class="form-label"
+                           for="{{ form.percentage.id_for_label }}">PERCENTAGE</label>
+                    {{ form.percentage }}
+                </div>
+
+                <div style="margin-top: 20px;"></div>
+
+                <div class="fieldWrapper form-input-text">
+                    {{ form.price_value.errors }}
+                    <label style="width: 120px;" class="form-label"
+                           for="{{ form.price_value.id_for_label }}">PRICE</label>
+                    {{ form.price_value }}
+                </div>
+                <div class="fieldWrapper form-input-text">
+                    {{ form.current_month_days.errors }}
+                    <label style="width: 120px;" class="form-label" for="{{ form.current_month_days.id_for_label }}">MONTH
+                        NO. OF DAYS</label>
+                    {{ form.current_month_days }}
+                </div>
+
+                <div class="fieldWrapper form-input-text">
+                    {{ form.number_of_days.errors }}
+                    <label style="width: 120px;" class="form-label" for="{{ form.number_of_days.id_for_label }}">NO. OF
+                        DAYS</label>
+                    {{ form.number_of_days }}
+                </div>
+
+                <button type="submit" class="save btn btn-x"
+                        style="font-size: 16px;
+                            border-radius: 0;
+                            border: none;
+                            padding: 10px 40px 10px 40px;
+                            color: white;
+                            margin-top: 30px;
+                            margin-left: 0;
+                            background: #FF416C;  /* fallback for old browsers */
+                            background: -webkit-linear-gradient(to right, #FF4B2B, #FF416C);  /* Chrome 10-25, Safari 5.1-6 */
+                            background: linear-gradient(to right, #FF4B2B, #FF416C); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+                ">ADD TRANSACTION
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <div id="base-table-container" class="col-md-10">
+        <div class="row" id="table-content" style="width: 80vw; margin-left: 0; margin-top: 20px;">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col" style="width: 8%;">DATE</th>
+                    <th scope="col" style="width: 8%;">CODE</th>
+                    <th scope="col" style="width: 8%;">LAST NAME</th>
+                    <th scope="col" style="width: 8%;">FIRST NAME</th>
+                    <th scope="col" style="width: 2%;">M.I.</th>
+                    <th scope="col" style="width: 2%;">SEX</th>
+                    <th scope="col" style="width: 8%;">NATIONALITY</th>
+                    <th scope="col" style="width: 8%;">CONTACT NUMBER</th>
+                    <th scope="col" style="width: 14%;">ADDRESS</th>
+                    <th scope="col" style="width: 14%;">DESCRIPTION</th>
+                    <th scope="col" style="width: 4%;">KARAT</th>
+                    <th scope="col" style="width: 4%;">GRAMS</th>
+                    <th scope="col" style="width: 2%;">%</th>
+                    <th scope="col" style="width: 4%;">P_VALUE</th>
+                    <th scope="col" style="width: 4%;">A_VALUE</th>
+                    <th scope="col" style="width: 8%;">EDIT</th>
+                    <th scope="col" style="width: 4%;">DEL</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for each in data %}
+                    <tr>
+                        <th scope="row">{{ each.date_time }}</th>
+                        <td><a href="{% url 'transaction:transaction_detail' pk=each.pk %}">{{ each.code }}</a></td>
+                        <td>{{ each.last_name }}</td>
+                        <td>{{ each.first_name }}</td>
+                        <td>{{ each.middle_name }}</td>
+                        <td>{{ each.sex }}</td>
+                        <td>{{ each.nationality }}</td>
+                        <td>{{ each.contact_number }}</td>
+                        <td>{{ each.address }}</td>
+                        <td>{{ each.description }}</td>
+                        <td>{{ each.karat }}</td>
+                        <td>{{ each.grams }}</td>
+                        <td>{{ each.percentage }}</td>
+                        <td>{{ each.price_value }}</td>
+                        <td>{{ each.a_value }}</td>
+                        <td><a href="{% url 'transaction:transaction_edit' pk=each.pk %}">Edit</a></td>
+                        <td><a href="{% url 'transaction:transaction_delete' pk=each.pk %}">Delete</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

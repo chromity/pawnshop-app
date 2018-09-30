@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+    <div id="base-table-container" class="col-md-12">
+        <div class="row" id="table-content" style="width: 80vw; margin-left: 0; margin-top: 20px;">
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th scope="col" style="width: 8%;">DATE</th>
+                    <th scope="col" style="width: 8%;">CODE</th>
+                    <th scope="col" style="width: 8%;">LAST NAME</th>
+                    <th scope="col" style="width: 8%;">FIRST NAME</th>
+                    <th scope="col" style="width: 2%;">M.I.</th>
+                    <th scope="col" style="width: 2%;">SEX</th>
+                    <th scope="col" style="width: 8%;">NATIONALITY</th>
+                    <th scope="col" style="width: 8%;">CONTACT NUMBER</th>
+                    <th scope="col" style="width: 14%;">ADDRESS</th>
+                    <th scope="col" style="width: 14%;">DESCRIPTION</th>
+                    <th scope="col" style="width: 4%;">KARAT</th>
+                    <th scope="col" style="width: 4%;">GRAMS</th>
+                    <th scope="col" style="width: 2%;">%</th>
+                    <th scope="col" style="width: 4%;">P_VALUE</th>
+                    <th scope="col" style="width: 4%;">A_VALUE</th>
+                    <th scope="col" style="width: 8%;">EDIT</th>
+                    <th scope="col" style="width: 4%;">DEL</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for each in data %}
+                    <tr>
+                        <th scope="row">{{ each.date_time }}</th>
+                        <td><a href="{% url 'transaction:transaction_detail' pk=each.pk %}">{{ each.code }}</a></td>
+                        <td>{{ each.last_name }}</td>
+                        <td>{{ each.first_name }}</td>
+                        <td>{{ each.middle_name }}</td>
+                        <td>{{ each.sex }}</td>
+                        <td>{{ each.nationality }}</td>
+                        <td>{{ each.contact_number }}</td>
+                        <td>{{ each.address }}</td>
+                        <td>{{ each.description }}</td>
+                        <td>{{ each.karat }}</td>
+                        <td>{{ each.grams }}</td>
+                        <td>{{ each.percentage }}</td>
+                        <td>{{ each.price_value }}</td>
+                        <td>{{ each.a_value }}</td>
+                        <td><a href="{% url 'transaction:transaction_edit' pk=each.pk %}">Edit</a></td>
+                        <td><a href="{% url 'transaction:transaction_delete' pk=each.pk %}">Delete</a></td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}
