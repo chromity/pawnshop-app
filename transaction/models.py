@@ -21,5 +21,6 @@ class PawnTransaction(models.Model):
     # VALUES NEEDED TO COMPUTE A_VALUE
     percentage = models.FloatField(choices=((0.04, '4%'), (0.05, '5%'), (0.06, '6%')))
     price_value = models.FloatField()
+    current_month_days = models.IntegerField(default=31)
     number_of_days = models.FloatField()
     a_value = models.FloatField()

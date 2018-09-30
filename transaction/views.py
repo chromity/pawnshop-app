@@ -19,19 +19,25 @@ def index(request):
 # handle transaction list request
 @login_required(login_url='admin:login')
 def transaction_list(request):
-    pass
+    data = PawnTransaction.objects.order_by('date_time')
+    return render(request, 'transaction/transaction_list.html', {'data': data})
 
 
 # handle transaction detail request
 @login_required(login_url='admin:login')
-def transaction_detail(request):
-    pass
+def transaction_detail(request, pk):
+    data = get_object_or_404(PawnTransaction, pk=pk)
+    return render(request, 'transaction/transaction_detail.html', {'data': data})
 
 
 # handle transaction add request
 @login_required(login_url='admin:login')
 def transaction_add(request):
-    pass
+    if request.method == "POST":
+        form = PawnTransactionForm (request.POST)
+
+        if form.is_valid():
+            pass
 
 
 # handle transaction edit request
